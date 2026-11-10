@@ -1,0 +1,75 @@
+import type { TutorialStep } from "../types/TutorialStep";
+
+export const HOME_TUTORIAL_STEPS: TutorialStep[] = [
+    {
+        id: "welcome",
+        title: "Welcome to ClockIn!",
+        body: "Let's get familiar with the",
+        highlight: "features before you begin.",
+        targetSelector: "",
+        modalPosition: { top: "50%", left: "50%", transform: "translate(-50%, -50%)" },
+        beePosition: { top: "50%", right: "35%" },
+    },
+    {
+        id: "sticky-notes",
+        title: "Sticky Notes",
+        body: "These are your sticky notes to jot down a quick thought. You can brain dump here and even turn them into",
+        highlight: "formal tasks!",
+        targetSelector: "[data-tutorial='sticky-notes']",
+        modalPosition: { bottom: "28%", left: "10%" },
+        beePosition: { bottom: "25%", left: "31%" },
+        lineCurve:{ offsetY:-200},
+        spotlightOffset:{x: -150, y:90},
+    },
+    {
+        id: "timer",
+        title: "Timer",
+        body: "",
+        highlight: "Clock in",
+        targetSelector: "[data-tutorial='clock']",
+        modalPosition: { top: "42%", left: "26%" },
+        beePosition: { top: "38%", left: "24%" },
+        lineCurve: { offsetX: -180, offsetY: 0 },
+        spotlightOffset: {x: 10, y: -50}
+    },
+    {
+        id: "tasks",
+        title: "Task List",
+        body: "Keep track of everything you need to do.",
+        highlight: "Stay organized.",
+        targetSelector: "[data-tutorial='task-book']",
+        modalPosition: { top: "38%", left: "14%" },
+        beePosition: { top: "46%", left: "35%" },
+        lineCurve: { offsetX: -350, offsetY: 0 },
+        spotlightOffset: {x: -250, y: -30}
+    },
+    {
+        id: "schedule",
+        title: "Schedule",
+        body: "The Tasks and Schedule is a space to create tasks, customize them, and generate a schedule",
+        highlight: "best fit for you!",
+        targetSelector: "[data-tutorial='planner']",
+        modalPosition: { top: "28%", left: "44%" },
+        beePosition: { top: "23%", left: "63%" },
+        lineCurve: { offsetX: 300 , offsetY: -200 },
+        spotlightOffset: {x: 40, y: -240}
+    },
+    {
+        id: "garden",
+        title: "Garden",
+        body: "As you clock in, you will eventually",
+        highlight: "grow a garden.",
+        targetSelector: "[data-tutorial='pot']",
+        modalPosition: { top: "15%", left: "36%" },
+        beePosition: { top: "22%", left: "57%" },
+    },
+    {
+        id: "gist",
+        title: "That's the gist.",
+        body: "See your account details or find help here in",
+        highlight: "home.",
+        targetSelector: "[data-tutorial='home-btn']",
+        modalPosition: { top: "50%", left: "50%", transform: "translate(-50%, -50%)" },
+        beePosition: { bottom: "52%", left: "37%" },
+    },
+];

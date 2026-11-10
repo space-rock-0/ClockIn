@@ -1,0 +1,390 @@
+/* ── Modal overlay ── */
+
+.sp-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: 32px;
+    box-sizing: border-box;
+}
+
+.sp-page {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    height: 100%;
+    max-height: 820px;
+}
+
+.sp-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    min-height: 0;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Top section ── */
+
+.sp-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    padding: 20px 24px;
+    border-bottom: 1px solid #f0f0f0;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.sp-tasks-area {
+    flex: 1;
+    min-width: 0;
+}
+
+.sp-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: #f0f0f0;
+    color: #666;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.sp-close-btn:hover {
+    background: #e0e0e0;
+    color: #111;
+}
+
+.sp-section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #aaa;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+/* ── Task chips ── */
+
+.sp-chips-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.sp-chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    padding: 6px 10px 6px 12px;
+    font-size: 0.82rem;
+    flex-shrink: 0;
+}
+
+.sp-chip-title {
+    font-weight: 600;
+    color: #222;
+    white-space: nowrap;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sp-chip-dur {
+    color: #888;
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
+
+.sp-chip-x {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #bbb;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.sp-chip-x:hover {
+    color: #555;
+}
+
+/* ── Add task input + dropdown ── */
+
+.sp-add-wrap {
+    position: relative;
+}
+
+.sp-add-input {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 7px 14px;
+    font-size: 0.82rem;
+    outline: none;
+    width: 160px;
+    color: #333;
+    background: #fafafa;
+}
+
+.sp-add-input:focus {
+    border-color: #4B94DB;
+    background: white;
+}
+
+.sp-add-input::placeholder {
+    color: #bbb;
+}
+
+.sp-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+    min-width: 220px;
+    max-height: 260px;
+    overflow-y: auto;
+    padding: 4px;
+}
+
+.sp-dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 8px 12px;
+    background: none;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    text-align: left;
+    gap: 8px;
+}
+
+.sp-dropdown-item:hover {
+    background: #f5f7ff;
+}
+
+.sp-dropdown-title {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #222;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sp-dropdown-dur {
+    font-size: 0.75rem;
+    color: #aaa;
+    flex-shrink: 0;
+}
+
+.sp-plus-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #4B94DB;
+    color: white;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.sp-plus-btn:hover {
+    background: #3a7fc9;
+}
+
+/* ── Schedule style panel ── */
+
+.sp-style-panel {
+    width: 220px;
+    flex-shrink: 0;
+    border-left: 1px solid #f0f0f0;
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sp-style-select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #333;
+    background: white;
+    outline: none;
+    cursor: pointer;
+    appearance: auto;
+}
+
+.sp-generate-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: #4B94DB;
+    color: white;
+    border: none;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+}
+
+.sp-generate-btn:hover:not(:disabled) {
+    background: #3a7fc9;
+}
+
+.sp-generate-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.sp-accept-btn {
+    padding: 8px 16px;
+    border-radius: 10px;
+    background: #22c55e;
+    color: white;
+    border: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+
+.sp-accept-btn:hover {
+    background: #16a34a;
+}
+
+.sp-accepted-badge {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #22c55e;
+    padding: 6px 12px;
+    border-radius: 10px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    text-align: center;
+}
+
+/* ── Days row ── */
+
+.sp-days-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 24px;
+    border-bottom: 1px solid #f0f0f0;
+    flex-shrink: 0;
+}
+
+.sp-days-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #888;
+    margin-right: 4px;
+    white-space: nowrap;
+}
+
+.sp-day-btn {
+    padding: 7px 18px;
+    border-radius: 20px;
+    border: 1.5px solid #e5e7eb;
+    background: white;
+    color: #aaa;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+
+.sp-day-btn:hover {
+    border-color: #4B94DB;
+    color: #4B94DB;
+}
+
+.sp-day-active {
+    background: #4B94DB;
+    color: white;
+    border-color: #4B94DB;
+}
+
+.sp-day-active:hover {
+    background: #3a7fc9;
+    border-color: #3a7fc9;
+    color: white;
+}
+
+/* ── Grid area ── */
+
+.sp-grid-area {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* ── Empty state ── */
+
+.sp-empty-state {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #ccc;
+}
+
+.sp-empty-icon {
+    font-size: 3rem;
+    opacity: 0.5;
+    filter: grayscale(1);
+}
+
+.sp-empty-state p {
+    font-size: 0.95rem;
+    color: #bbb;
+    font-weight: 500;
+    margin: 0;
+}

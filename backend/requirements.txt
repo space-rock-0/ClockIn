@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+supabase
+python-dotenv
+openai
+apscheduler
+numpy
+PyJWT
+httpx
+pydantic
+pymupdf
+python-multipart
+requests

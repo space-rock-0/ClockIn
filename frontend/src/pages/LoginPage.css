@@ -1,0 +1,169 @@
+/* login page */
+
+.lp-bg {
+    min-height: 100vh;
+    background: #AFDBFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.lp-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem 2rem 2rem;
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.lp-back-btn {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #4B94DB;
+    color: white;
+    border: none;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lp-title {
+    font-size: 2rem;
+    font-weight: 900;
+    font-style: italic;
+    color: #111;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.lp-modeswitcher {
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 2rem;
+}
+
+.lp-mode-link {
+    color: #4B94DB;
+    cursor: pointer;
+}
+
+.lp-mode-link:hover {
+    text-decoration: underline;
+}
+
+.lp-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.lp-section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 2px;
+}
+
+.lp-signup-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #4B94DB;
+    margin-bottom: 2px;
+}
+
+.lp-section-subtitle {
+    font-size: 0.82rem;
+    color: #aaa;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.lp-error {
+    color: #e0569a;
+    font-size: 0.82rem;
+    font-style: italic;
+    margin-bottom: 0.75rem;
+}
+
+.lp-field {
+    width: 100%;
+    margin-bottom: 0.75rem;
+}
+
+.lp-input {
+    width: 100%;
+    background: #f0f0f0;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    outline: none;
+    color: #111;
+}
+
+.lp-input-error {
+    border-color: #e0569a;
+}
+
+.lp-label {
+    font-size: 0.75rem;
+    color: #aaa;
+    margin-top: 4px;
+    display: block;
+}
+
+.lp-divider {
+    border: none;
+    border-top: 1px solid #e8e8e8;
+    margin: 1.25rem 0;
+    width: 100%;
+}
+
+.lp-signup-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    width: 100%;
+}
+
+.lp-signup-section:hover .lp-signup-title {
+    opacity: 0.75;
+}
+
+.lp-enter-btn {
+    display: block;
+    margin: 1.5rem auto 0;
+    background: #f5f07a;
+    border: none;
+    border-radius: 40px;
+    padding: 12px 52px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+
+.lp-enter-btn:hover:not(:disabled) {
+    opacity: 0.85;
+}
+
+.lp-enter-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

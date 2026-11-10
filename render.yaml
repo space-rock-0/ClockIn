@@ -1,0 +1,57 @@
+# Fill prompted variables with the existing Supabase/Google credentials.
+# Use the actual Render-assigned HTTPS URLs for FRONTEND_URL and VITE_API_URL.
+services:
+  - type: web
+    name: clockin-api
+    runtime: python
+    region: singapore
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.11
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_PUBLISHABLE_KEY
+        sync: false
+      - key: SUPABASE_SECRET_KEY
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GOOGLE_REDIRECT_URI
+        sync: false
+      - key: GOOGLE_STATE_SECRET
+        generateValue: true
+
+  - type: web
+    name: clockin-web
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: VITE_API_URL
+        sync: false
+      - key: VITE_SUPABASE_URL
+        fromService:
+          name: clockin-api
+          type: web
+          envVarKey: SUPABASE_URL
+      - key: VITE_SUPABASE_PUBLISHABLE_KEY
+        fromService:
+          name: clockin-api
+          type: web
+          envVarKey: SUPABASE_PUBLISHABLE_KEY
