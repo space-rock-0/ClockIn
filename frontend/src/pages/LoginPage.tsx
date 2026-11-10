@@ -65,6 +65,14 @@ export default function LoginPage() {
                     )}
                 </p>
 
+                <p style={{ lineHeight: 1.6 }}>
+                    Plan study tasks, organize notes, track focus sessions and connect Google Calendar to find time to study.
+                </p>
+                <nav aria-label="Policies" style={{ display: "flex", justifyContent: "center", gap: 20, marginBottom: 20 }}>
+                    <a href="/privacy.html">Privacy Policy</a>
+                    <a href="/terms.html">Terms of Service</a>
+                </nav>
+
                 {mode === "login" ? (
                     <>
                         <div className="lp-section">
