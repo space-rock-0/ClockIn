@@ -16,7 +16,7 @@ Spark! Innovation Fellowship.
 
 ## Project Links
 
-- [Open the Live Application](https://clock-in-orcin.vercel.app/)
+- [Open the Live Application](https://clockin-web-wyzq.onrender.com/)
 - [Read the ClockIn Case Study](https://medium.com/@clewis27/clockin-b98a8865dab4)
 
 > **Project status:** Active feature development has concluded, but the project
@@ -116,7 +116,7 @@ Users can configure their provider and API keys in Settings.
 
 ### Deployment
 
-- Vercel — frontend hosting
+- Render Hosting
 - Railway — backend hosting
 
 ## Team and Contributions
@@ -125,28 +125,24 @@ ClockIn was developed by a four-person cross-functional team. The team
 collaborated across product planning, system design, software development,
 testing, user research, and UI/UX design.
 
-<p align="center">
-  <img src="docs/clockin-team.jpg" width="85%" alt="The ClockIn team presenting at Boston University Spark! Demo Day">
-</p>
 
 <p align="center">
-  <em>The ClockIn team presenting the project at Boston University Spark! Demo Day.</em>
+  <em>The ClockIn team presenting the project at Vit ! Demo Day.</em>
 </p>
 
-- **Kevin Kupeli** — Developed the task page, note-to-task conversion pipeline,
+- **Sagi Siddhartha** — Developed the task page, note-to-task conversion pipeline,
   task atomization, and onboarding experience; contributed to overall OpenAI model
   integration and served as Product Owner.
-- **Reese Stichter** — Developed sticky notes, the progress garden, focus timer,
+- **Vinay** — Developed sticky notes, the progress garden, focus timer,
   and Google Calendar integration; contributed to overall system design and
   served as Scrum lead.
-- **Alicia Lin** — Developed the scheduling and learning pipelines, dark mode,
+- **Hemanth** — Developed the scheduling and learning pipelines, dark mode,
   and user authentication.
-- **Clara Lewis** — Created application assets, typography, color system, and
+- **Ritheesh** — Created application assets, typography, color system, and
   visual branding.
 
 ## Product Development
-
-The team used Agile development practices to plan, prioritize, and deliver
+used Agile development practices to plan, prioritize, and deliver
 ClockIn across multiple development sprints.
 
 - Conducted more than 30 user interviews to understand student productivity
