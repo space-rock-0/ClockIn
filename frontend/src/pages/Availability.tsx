@@ -130,24 +130,23 @@ export default function Availability() {
     const [syncOn, setSyncOn] = useState(false);
     const [isConnected, setIsConnected] = useState(false);
     const [statusLoading, setStatusLoading] = useState(true);
-    const [googleMessage, setGoogleMessage] = useState<string | null>(null);
+    const [googleMessage] = useState<string | null>(() => {
+        const result = new URLSearchParams(window.location.search).get("google");
+        const messages: Record<string, string> = {
+            denied: "Google blocked this connection. Add your account as a test user, or publish and verify the Google OAuth app.",
+            storage: "Google credentials were accepted, but ClockIn storage is not ready. Run backend/database/clockin_schema.sql in Supabase SQL Editor.",
+            redirect: "Google rejected the callback URL. Make GOOGLE_REDIRECT_URI exactly match the authorized redirect URI in Google Cloud Console.",
+            error: "Google Calendar could not be connected. Check the backend callback and Google OAuth settings.",
+        };
+        return result ? messages[result] ?? null : null;
+    });
 
     const navigate = useNavigate();
     const location = useLocation();
 
     useEffect(() => {
         const result = new URLSearchParams(location.search).get("google");
-        if (result === "denied") {
-            setGoogleMessage("Google blocked this connection. Add your account as a test user, or publish and verify the Google OAuth app.");
-            window.history.replaceState({}, "", location.pathname);
-        } else if (result === "storage") {
-            setGoogleMessage("Google credentials were accepted, but ClockIn storage is not ready. Run backend/database/google_calendar_schema.sql in Supabase SQL Editor, then restart the backend.");
-            window.history.replaceState({}, "", location.pathname);
-        } else if (result === "redirect") {
-            setGoogleMessage("Google rejected the callback URL. Make GOOGLE_REDIRECT_URI exactly match the authorized redirect URI in Google Cloud Console.");
-            window.history.replaceState({}, "", location.pathname);
-        } else if (result === "error") {
-            setGoogleMessage("Google Calendar could not be connected. Check the backend callback and Google OAuth settings.");
+        if (result) {
             window.history.replaceState({}, "", location.pathname);
         }
         getGoogleStatus()
